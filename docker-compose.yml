@@ -4,6 +4,8 @@ services:
     build: ./ui/.
     ports:
       - "80:80"
+  redis:
+    image: "redis:alpine"
   api:
     build: ./api/.
     volumes:
