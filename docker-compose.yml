@@ -8,9 +8,5 @@ services:
     image: "redis:alpine"
   api:
     build: ./api/.
-    volumes:
-      - "./api/node_modules:/app/node_modules"
   api2:
     build: ./api/.
-    volumes:
-      - "./api/node_modules:/app/node_modules"
