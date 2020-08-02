@@ -2,17 +2,24 @@ version: "3"
 services:
   ui:
     build: ./ui/.
+    depends_on: 
+      - "api"
+      - "api2"
     ports:
       - "80:80"
   redis:
     image: "redis:alpine"
   api:
     build: ./api/.
+    depends_on:
+      - "redis"
     environment:
       - REDIS_PORT=6379
       - REDIS_HOST=redis
   api2:
     build: ./api/.
+    depends_on:
+      - "redis"
     environment:
       - REDIS_PORT=6379
       - REDIS_HOST=redis
