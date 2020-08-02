@@ -8,5 +8,11 @@ services:
     image: "redis:alpine"
   api:
     build: ./api/.
+    environment:
+      - REDIS_PORT=6379
+      - REDIS_HOST=redis
   api2:
     build: ./api/.
+    environment:
+      - REDIS_PORT=6379
+      - REDIS_HOST=redis

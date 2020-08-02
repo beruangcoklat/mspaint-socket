@@ -3,8 +3,10 @@ const app = express();
 const server = app.listen(8080, "0.0.0.0");
 const io = require("socket.io").listen(server);
 const redis = require("redis");
-const publisher = redis.createClient(6379, "redis");
-const subscriber = redis.createClient(6379, "redis");
+const REDIS_HOST = process.env.REDIS_HOST;
+const REDIS_PORT = process.env.REDIS_PORT;
+const publisher = redis.createClient(REDIS_PORT, REDIS_HOST);
+const subscriber = redis.createClient(REDIS_PORT, REDIS_HOST);
 const currID = Math.random().toString(36).substring(7);
 
 var sockets = [];
